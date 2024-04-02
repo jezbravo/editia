@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
-import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ClerkProvider } from "@clerk/nextjs";
+import "./globals.css";
 
 const IBMPLex = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const IBMPLex = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "EditIA",
+  title: "Editia",
   description: "AI-powered image generator and editor",
 };
 
@@ -20,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn("font-IBMPlex antialiased", IBMPLex.variable)}>
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={cn("font-IBMPlex antialiased", IBMPLex.variable)}>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
