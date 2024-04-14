@@ -1,10 +1,6 @@
-import {
-  getUserById,
-  updateCredits,
-} from "@/lib/actions/lib/actions/user.actions";
+import { updateCredits } from "@/lib/actions/lib/actions/user.actions";
 import Transaction from "@/lib/database/models/transaction.model";
 import { connectToDataBase } from "@/lib/database/mongoose";
-import { auth } from "@clerk/nextjs";
 import { MercadoPagoConfig, Payment } from "mercadopago";
 import { NextRequest } from "next/server";
 
@@ -29,18 +25,14 @@ export async function POST(request: NextRequest) {
   //   if (secret === process.env.SECRET) return Response.json({ success: false });
 
   //   Datos de la compra
-  const payment = await new Payment(mercadopago).get({ id: body.data.id });
+  const payment = await new Payment(mercadopago).get({ id: body.data.id! });
   console.log("payment:", payment);
-
-  const { userId } = auth();
-  const user = await getUserById(userId!);
-  console.log("User:", user);
 
   //   Objeto con info de la compra, para integrar a la DB
   const transaction = {
     transaction_id: payment.id,
     order_id: payment.order?.id,
-    user: user,
+    // user: user,
     transaction_amount: payment.transaction_amount,
     plan_name: payment.description,
     created_at: payment.date_created,
@@ -57,23 +49,23 @@ export async function POST(request: NextRequest) {
   console.log("transaction:", transaction);
 
   // Actualizar DB y créditos
-  if (transaction.status === "approved") {
-    await connectToDataBase();
+  await connectToDataBase();
 
-    const newTransaction = await Transaction.create({
-      ...transaction,
-    });
+  const newTransaction = await Transaction.create({
+    ...transaction,
+  });
+  const result = await JSON.parse(JSON.stringify(newTransaction));
+  result;
 
-    // Actualizar los créditos
-    if (transaction.plan_name === "Pro Package") {
-      let credits = 120;
-      await updateCredits(user, credits);
-    } else {
-      let credits = 2000;
-      await updateCredits(user, credits);
-    }
-
-    return JSON.parse(JSON.stringify(newTransaction));
-  }
+  // if (transaction.status === "approved") {
+  // Actualizar los créditos
+  // if (transaction.plan_name === "Pro Package") {
+  //   let credits = 120;
+  //   await updateCredits(transaction.user, credits);
+  // } else {
+  //   let credits = 2000;
+  //   await updateCredits(transaction.user, credits);
+  // }
+  // }
   return Response.json({ success: true });
 }
