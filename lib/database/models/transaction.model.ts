@@ -2,8 +2,8 @@ import { Schema, model, models } from "mongoose";
 
 const TransactionSchema = new Schema({
   transaction_id: {
-    type: Number,
-    unique: true,
+    type: Date,
+    // unique: true,
     required: true,
   },
   order_id: {

@@ -21,7 +21,6 @@ const Credits = async () => {
         title="Buy Credits"
         subtitle="Choose a credit package that suits your needs!"
       />
-
       <section>
         <ul className="credits-list">
           {plans.map((plan) => (
