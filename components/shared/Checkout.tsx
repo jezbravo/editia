@@ -14,7 +14,12 @@ interface CheckoutProps {
   buyerId: string;
 }
 
-const Checkout: React.FC<CheckoutProps> = ({ planName, planPrice }) => {
+const Checkout: React.FC<CheckoutProps> = async ({
+  planName,
+  planPrice,
+  planCredits,
+  // buyerId,
+}) => {
   const handlePurchase = async () => {
     "use server";
     const preference = await new Preference(client).create({
@@ -23,6 +28,7 @@ const Checkout: React.FC<CheckoutProps> = ({ planName, planPrice }) => {
           {
             id: planName,
             title: planName,
+            description: String(planCredits),
             quantity: 1,
             unit_price: planPrice,
             currency_id: "ARS",
@@ -33,6 +39,12 @@ const Checkout: React.FC<CheckoutProps> = ({ planName, planPrice }) => {
           failure: process.env.BACK_URL_FAILURE!,
           pending: process.env.BACK_URL_PENDING!,
         },
+
+        notification_url:
+          "https://tool-our-metabolism-vpn.trycloudflare.com/payment",
+
+        statement_descriptor: "Editia",
+
         auto_return: "approved",
       },
     });
@@ -49,7 +61,7 @@ const Checkout: React.FC<CheckoutProps> = ({ planName, planPrice }) => {
           role="link"
           className="w-full rounded-full bg-purple-gradient bg-cover"
         >
-          Buy Credit
+          Buy Credits
         </Button>
       </section>
     </form>

@@ -80,7 +80,7 @@ declare type CheckoutTransactionParams = {
 };
 
 declare type CreateTransactionParams = {
-  mpId: string;
+  id: string;
   amount: number;
   credits: number;
   plan: string;
