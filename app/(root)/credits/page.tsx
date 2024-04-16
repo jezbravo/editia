@@ -1,19 +1,22 @@
-import { SignedIn, auth } from "@clerk/nextjs";
+import { SignedIn, auth, currentUser } from "@clerk/nextjs";
 import Image from "next/image";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
-import { getUserById } from "@/lib/actions/lib/actions/user.actions";
+// import { getUserById } from "@/lib/actions/lib/actions/user.actions";
 import Checkout from "@/components/shared/Checkout";
 
 const Credits = async () => {
-  const { userId } = auth();
+  // const { userId } = auth();
 
-  if (!userId) redirect("/sign-in");
+  // if (!userId) redirect("/sign-in");
 
-  const user = await getUserById(userId);
+  // const user = await getUserById(userId);
+  const user = await currentUser();
+  const userId = user!.id;
+  const userName = user!.username;
 
   return (
     <>
@@ -61,10 +64,12 @@ const Credits = async () => {
               ) : (
                 <SignedIn>
                   <Checkout
+                    id="purchase"
+                    userId={userId!}
+                    userName={userName!}
                     planName={plan.name}
                     planPrice={plan.price}
                     planCredits={plan.credits}
-                    buyerId={user._id}
                   />
                 </SignedIn>
               )}

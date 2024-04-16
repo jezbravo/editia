@@ -1,12 +1,7 @@
-import {
-  getUserById,
-  updateCredits,
-} from "@/lib/actions/lib/actions/user.actions";
+import { updateCredits } from "@/lib/actions/lib/actions/user.actions";
 import Transaction from "@/lib/database/models/transaction.model";
 import { connectToDataBase } from "@/lib/database/mongoose";
-import { auth } from "@clerk/nextjs";
 import { MercadoPagoConfig, Payment } from "mercadopago";
-import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
 
 const mercadopago = new MercadoPagoConfig({
@@ -18,7 +13,15 @@ export async function POST(request: NextRequest) {
   const body = await request
     .json()
     .then((data) => data as { data: { id: string } });
-  console.log(body);
+  // console.log(body);
+
+  if (!body || !body.data || !body.data.id) {
+    console.error("No se encontró el ID en el cuerpo de la solicitud");
+    return Response.json(
+      { success: false, error: "ID not found in request body" },
+      { status: 400 },
+    );
+  }
 
   // Validación (producción)
   //   const secret = request.headers.get("x-signature-id");
@@ -26,20 +29,19 @@ export async function POST(request: NextRequest) {
 
   //   Datos de la compra
   const payment = await new Payment(mercadopago).get({ id: body.data.id });
-  console.log("payment:", payment);
+  // console.log("payment:", payment);
 
   // TODO
-  const { userId } = auth();
-  // if (!userId) redirect("/sign-in");
-  const user: string = await getUserById(userId!);
 
-  console.log("userId:", user);
+  // console.log("user_name:", user!.username);
+  // console.log("user_id:", user!.id);
 
   //   Objeto con info de la compra, para integrar a la DB
   const transaction = {
-    transaction_id: payment.date_created,
-    order_id: payment.order?.id,
-    user: user,
+    order_id: payment.order!.id,
+    user_id: payment.metadata!.user_id,
+    user_name: payment.metadata!.user_name,
+    credits: payment.metadata!.credits,
     transaction_amount: payment.transaction_amount,
     plan_name: payment.description,
     created_at: payment.date_created,
@@ -65,14 +67,14 @@ export async function POST(request: NextRequest) {
   result;
 
   // Actualizar los créditos
-  if (transaction.status === "approved") {
-    if (transaction.plan_name === "Pro Package") {
-      let credits = 120;
-      await updateCredits(transaction.user!, credits);
-    } else {
-      let credits = 2000;
-      await updateCredits(transaction.user!, credits);
-    }
-  }
+  // if (transaction.status === "approved") {
+  //   if (transaction.plan_name === "Pro Package") {
+  //     let credits = 120;
+  //     await updateCredits(transaction.user!, credits);
+  //   } else {
+  //     let credits = 2000;
+  //     await updateCredits(transaction.user!, credits);
+  //   }
+  // }
   return Response.json({ success: true });
 }

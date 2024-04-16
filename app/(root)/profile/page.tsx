@@ -19,7 +19,6 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
   return (
     <>
       <Header title="Profile" />
-
       <section className="profile">
         <div className="profile-balance">
           <p className="p-14-medium md:p-16-medium">CREDITS AVAILABLE</p>
@@ -49,7 +48,6 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
           </div>
         </div>
       </section>
-
       <section className="mt-8 md:mt-14">
         <Collection
           images={images?.data}

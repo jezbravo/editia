@@ -11,14 +11,18 @@ interface CheckoutProps {
   planName: string;
   planPrice: number;
   planCredits: number;
-  buyerId: string;
+  id: string;
+  userId: string;
+  userName: string;
 }
 
 const Checkout: React.FC<CheckoutProps> = async ({
   planName,
   planPrice,
   planCredits,
-  // buyerId,
+  id,
+  userId,
+  userName,
 }) => {
   const handlePurchase = async () => {
     "use server";
@@ -26,7 +30,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
       body: {
         items: [
           {
-            id: planName,
+            id: id,
             title: planName,
             description: String(planCredits),
             quantity: 1,
@@ -34,6 +38,11 @@ const Checkout: React.FC<CheckoutProps> = async ({
             currency_id: "ARS",
           },
         ],
+        metadata: {
+          credits: planCredits,
+          user_name: userName,
+          user_id: userId,
+        },
         back_urls: {
           success: process.env.BACK_URL_SUCCESS!,
           failure: process.env.BACK_URL_FAILURE!,
@@ -41,7 +50,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
         },
 
         notification_url:
-          "https://tool-our-metabolism-vpn.trycloudflare.com/payment",
+          "https://eagles-pie-vincent-roller.trycloudflare.com/payment",
 
         statement_descriptor: "Editia",
 

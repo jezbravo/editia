@@ -1,18 +1,22 @@
 import { Schema, model, models } from "mongoose";
+import { nanoid } from "nanoid";
 
 const TransactionSchema = new Schema({
-  transaction_id: {
-    type: Date,
-    // unique: true,
-    required: true,
-  },
+  // transaction_id: {
+  //   type: String,
+  //   unique: true,
+  //   default: () => nanoid(),
+  //   required: true,
+  // },
   order_id: {
     type: Number,
     required: true,
   },
-  user: {
+  user_id: {
     type: String,
-    // required: true,
+  },
+  user_name: {
+    type: String,
   },
   transaction_amount: {
     type: Number,
@@ -24,7 +28,7 @@ const TransactionSchema = new Schema({
   credits: {
     type: Number,
   },
-  // buyer: {
+  // userId: {
   //   type: Schema.Types.ObjectId,
   //   ref: "User",
   // },
