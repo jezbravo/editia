@@ -2,7 +2,7 @@ import Header from "@/components/shared/Header";
 import TransformationForm from "@/components/shared/TransformationForm";
 import { transformationTypes } from "@/constants";
 import { auth } from "@clerk/nextjs";
-import { getUserById } from "@/lib/actions/lib/actions/user.actions";
+import { getUserById } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 
 const AddTransformationTypePage = async ({

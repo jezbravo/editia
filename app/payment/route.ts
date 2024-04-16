@@ -1,6 +1,6 @@
-import { updateCredits } from "@/lib/actions/lib/actions/user.actions";
 import Transaction from "@/lib/database/models/transaction.model";
 import { connectToDataBase } from "@/lib/database/mongoose";
+import { updateUserCredits } from "@/lib/actions/transaction.action";
 import { MercadoPagoConfig, Payment } from "mercadopago";
 import { NextRequest } from "next/server";
 
@@ -31,11 +31,6 @@ export async function POST(request: NextRequest) {
   const payment = await new Payment(mercadopago).get({ id: body.data.id });
   // console.log("payment:", payment);
 
-  // TODO
-
-  // console.log("user_name:", user!.username);
-  // console.log("user_id:", user!.id);
-
   //   Objeto con info de la compra, para integrar a la DB
   const transaction = {
     order_id: payment.order!.id,
@@ -57,7 +52,7 @@ export async function POST(request: NextRequest) {
   };
   console.log("transaction:", transaction);
 
-  // Actualizar DB y créditos
+  // Actualizar DB
   await connectToDataBase();
 
   const newTransaction = await Transaction.create({
@@ -67,14 +62,9 @@ export async function POST(request: NextRequest) {
   result;
 
   // Actualizar los créditos
-  // if (transaction.status === "approved") {
-  //   if (transaction.plan_name === "Pro Package") {
-  //     let credits = 120;
-  //     await updateCredits(transaction.user!, credits);
-  //   } else {
-  //     let credits = 2000;
-  //     await updateCredits(transaction.user!, credits);
-  //   }
-  // }
+  if (transaction.status === "approved") {
+    await updateUserCredits(transaction.user_id!, transaction.credits!);
+  }
+
   return Response.json({ success: true });
 }
