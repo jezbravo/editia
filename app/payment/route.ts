@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
   const result = await JSON.parse(JSON.stringify(newTransaction));
   result;
 
-  // Actualizar los créditos// Actualizar los créditos
+  // Actualizar los créditos
   if (transaction.status === "approved") {
     let plan_id = 2;
     if (transaction.credits !== 100) {
