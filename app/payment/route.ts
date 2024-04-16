@@ -61,9 +61,17 @@ export async function POST(request: NextRequest) {
   const result = await JSON.parse(JSON.stringify(newTransaction));
   result;
 
-  // Actualizar los créditos
+  // Actualizar los créditos// Actualizar los créditos
   if (transaction.status === "approved") {
-    await updateUserCredits(transaction.user_id!, transaction.credits!);
+    let plan_id = 2;
+    if (transaction.credits !== 100) {
+      plan_id = 3;
+    }
+    await updateUserCredits(
+      transaction.user_id!,
+      transaction.credits!,
+      plan_id,
+    );
   }
 
   return Response.json({ success: true });
