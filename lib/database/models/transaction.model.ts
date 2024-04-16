@@ -1,5 +1,4 @@
 import { Schema, model, models } from "mongoose";
-import { nanoid } from "nanoid";
 
 const TransactionSchema = new Schema({
   // transaction_id: {
