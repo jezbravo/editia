@@ -50,7 +50,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
         },
 
         notification_url:
-          "https://eagles-pie-vincent-roller.trycloudflare.com/payment",
+          "https://dependent-eos-accent-wrap.trycloudflare.com/payment",
 
         statement_descriptor: "Editia",
 

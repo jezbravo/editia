@@ -6,6 +6,9 @@ const TransactionSchema = new Schema({
     required: true,
     unique: true,
   },
+  payment_id: {
+    type: Number,
+  },
   user_id: {
     type: String,
   },

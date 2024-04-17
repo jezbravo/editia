@@ -10,22 +10,21 @@ const mercadopago = new MercadoPagoConfig({
 
 // Función para escuchar la notificación webhook
 export async function POST(request: NextRequest) {
-  const body = await request
-    .json()
-    .then((data) => data as { data: { id: string } });
-  // console.log(body);
+  const body = await request.json();
+  // .then((data) => data as { data: { id: string } });
+  console.log(body);
 
-  if (!body || !body.data || !body.data.id) {
-    console.error("No se encontró el ID en el cuerpo de la solicitud");
-    return Response.json(
-      { success: false, error: "ID not found in request body" },
-      { status: 400 },
-    );
-  }
+  // if (!body || !body.data || !body.data.id) {
+  //   console.error("No se encontró el ID en el cuerpo de la solicitud");
+  //   return Response.json(
+  //     { success: false, error: "ID not found in request body" },
+  //     { status: 400 },
+  //   );
+  // }
 
   // Validación (producción)
   //   const secret = request.headers.get("x-signature-id");
-  //   if (secret === process.env.SECRET) return Response.json({ success: false });
+  //   if (secret !== process.env.SECRET) return Response.json({ success: false });
 
   //   Datos de la compra
   const payment = await new Payment(mercadopago).get({ id: body.data.id });
@@ -33,6 +32,7 @@ export async function POST(request: NextRequest) {
 
   //   Objeto con info de la compra, para integrar a la DB
   const transaction = {
+    payment_id: payment.id,
     order_id: payment.order!.id,
     user_id: payment.metadata!.user_id,
     user_name: payment.metadata!.user_name,
@@ -73,6 +73,5 @@ export async function POST(request: NextRequest) {
       plan_id,
     );
   }
-
   return Response.json({ success: true });
 }
