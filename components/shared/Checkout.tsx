@@ -49,8 +49,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
           pending: process.env.BACK_URL_PENDING!,
         },
 
-        notification_url:
-          "https://dependent-eos-accent-wrap.trycloudflare.com/validation",
+        notification_url: process.env.NOTIFICATION_URL,
 
         statement_descriptor: "Editia",
 

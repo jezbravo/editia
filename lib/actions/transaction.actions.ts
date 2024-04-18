@@ -2,25 +2,12 @@ import Transaction from "@/lib/database/models/transaction.model";
 import { connectToDataBase } from "@/lib/database/mongoose";
 import { updateUserCredits } from "@/lib/actions/credit.actions";
 import { MercadoPagoConfig, Payment } from "mercadopago";
-// import { NextRequest } from "next/server";
 
 const mercadopago = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN!,
 });
 
-// Función para escuchar la notificación webhook
 export async function handlePayment(body: any) {
-  // const body = await request.json();
-  // .then((data) => data as { data: { id: string } });
-
-  // if (!body || !body.data || !body.data.id) {
-  //   console.error("No se encontró el ID en el cuerpo de la solicitud");
-  //   return Response.json(
-  //     { success: false, error: "ID not found in request body" },
-  //     { status: 400 },
-  //   );
-  // }
-
   //   Datos de la compra
   const payment = await new Payment(mercadopago).get({ id: body.data.id });
   // console.log("payment:", payment);
@@ -68,5 +55,4 @@ export async function handlePayment(body: any) {
       plan_id,
     );
   }
-  return Response.json({ success: true });
 }
