@@ -53,10 +53,10 @@ function verifyHmac(
   for (const part of parts) {
     const [key, value] = part.split("="); // Separar cada parte en clave y valor
     if (key === "ts") {
-      ts = value; // Obtener el valor de 'ts'
+      ts = value; // Obtener el valor de 'ts' (timestamp)
       console.log("ts: ", ts);
     } else if (key === "v1") {
-      hash = value; // Obtener el valor de 'v1'
+      hash = value; // Obtener el valor de 'v1' (clave encriptada)
       console.log("hash: ", hash);
       console.log("hash-length: ", hash.length);
     }
@@ -67,7 +67,7 @@ function verifyHmac(
     .createHmac("sha256", secret)
     .update(manifest)
     .digest("hex");
-  console.log("sha: ", sha);
+  console.log("sha: ", sha); //contraclave
   console.log("sha-length: ", sha.length);
   if (sha === hash) {
     console.log("----- Validation has been successful -----");
