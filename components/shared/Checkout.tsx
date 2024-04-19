@@ -67,7 +67,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
         <Button
           type="submit"
           role="link"
-          className="w-full rounded-full bg-purple-gradient bg-cover"
+          className="bg-green-gradient w-full rounded-full bg-cover"
         >
           Buy Credits
         </Button>

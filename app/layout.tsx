@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
-const IBMPLex = IBM_Plex_Sans({
+const RobotoFont = Roboto({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-ibm-plex",
+  weight: ["100", "300", "400", "500", "700", "900"],
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,9 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        <body className={cn("font-IBMPlex antialiased", IBMPLex.variable)}>
+        <body
+          className={cn("font-RobotoFont antialiased", RobotoFont.variable)}
+        >
           {children}
         </body>
       </html>
