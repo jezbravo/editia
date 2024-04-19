@@ -27,6 +27,9 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
+        <head>
+          <link rel="icon" href="/" type="image/x-icon" />
+        </head>
         <body
           className={cn("font-RobotoFont antialiased", RobotoFont.variable)}
         >
