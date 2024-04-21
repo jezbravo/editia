@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { cn } from "@/src/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
-import "./globals.css";
+import "../globals.css";
 
 const RobotoFont = Roboto({
   subsets: ["latin"],
