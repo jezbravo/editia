@@ -17,6 +17,7 @@ export default authMiddleware({
   // Ensure that locale specific sign-in pages are public
   publicRoutes: [
     "/:locale/sign-in",
+    "/sign-in",
     "/api/webhooks/clerk",
     "/api/webhooks/mp_validation",
   ],
@@ -27,6 +28,6 @@ export const config = {
     "/((?!.+\\.[\\w]+$|_next).*)",
     "/",
     "/(api|trpc)(.*)",
-    "/(de|en)/:path*",
+    "/(es|en)/:path*",
   ],
 };
