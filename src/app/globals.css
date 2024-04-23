@@ -175,7 +175,7 @@
   }
 
   .dropdown-item {
-    @apply p-16-semibold hover:bg-green-gradient cursor-pointer rounded-none px-4 py-3 text-dark-700 outline-none transition-all hover:border-none hover:bg-cover hover:text-white focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+    @apply p-16-semibold cursor-pointer rounded-none px-4 py-3 text-dark-700 outline-none transition-all hover:border-none hover:bg-green-gradient hover:bg-cover hover:text-white focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
   }
 
   .input-field {
@@ -187,7 +187,7 @@
   }
 
   .submit-button {
-    @apply p-16-semibold bg-green-gradient h-[50px] w-full rounded-full bg-cover px-6 py-4 md:h-[54px];
+    @apply p-16-semibold h-[50px] w-full rounded-full bg-green-gradient bg-cover px-6 py-4 md:h-[54px];
   }
 
   .select-field {
@@ -276,7 +276,7 @@
   }
 
   .collection-btn {
-    @apply button bg-green-gradient w-32 bg-cover text-white;
+    @apply button w-32 bg-green-gradient bg-cover text-white;
   }
 
   .collection-card {

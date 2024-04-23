@@ -3,18 +3,18 @@ import { navLinks } from "@/src/constants";
 import { getAllImages } from "@/src/lib/actions/image.actions";
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 const Home = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
   const searchQuery = (searchParams?.query as string) || "";
   const images = await getAllImages({ page, searchQuery });
+  const t = await getTranslations("Home");
 
   return (
     <>
       <section className="home">
-        <h1 className="home-heading">
-          Unleash your creative vision with Editia
-        </h1>
+        <h1 className="home-heading">{t("home-heading")}</h1>
         <ul className="flex-center w-full gap-20">
           {navLinks.slice(1, 6).map((link) => (
             <Link
