@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
+import Image from "next/image";
 
 export default function LanguageSwitcher() {
   const [isPending, startTransition] = useTransition();
@@ -19,7 +20,7 @@ export default function LanguageSwitcher() {
   const onSelectChange = (nextLocale: string) => {
     startTransition(() => {
       router.replace(`/${nextLocale}`);
-      router.refresh();
+      // router.refresh();
     });
   };
 
@@ -34,8 +35,30 @@ export default function LanguageSwitcher() {
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="en">English</SelectItem>
-          <SelectItem value="es">Español</SelectItem>
+          <SelectItem value="en">
+            <div className="flex items-center hover:cursor-pointer">
+              <Image
+                src="/assets/icons/gb.svg"
+                alt="UK flag"
+                className="mr-2 h-auto w-7"
+                width={5}
+                height={5}
+              />
+              <span>English</span>
+            </div>
+          </SelectItem>
+          <SelectItem value="es">
+            <div className="flex items-center hover:cursor-pointer">
+              <Image
+                src="/assets/icons/es.svg"
+                alt="UK flag"
+                className="mr-2 h-auto w-7"
+                width={5}
+                height={5}
+              />
+              <span>Español</span>
+            </div>
+          </SelectItem>
         </SelectContent>
       </Select>
     </div>
