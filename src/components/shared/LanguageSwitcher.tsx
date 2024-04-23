@@ -25,13 +25,13 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="mr-6 flex justify-end">
+    <div className="mb-2 mr-6 flex justify-end">
       <Select
         onValueChange={onSelectChange}
         defaultValue={localActive}
         disabled={isPending}
       >
-        <SelectTrigger className="w-[auto]">
+        <SelectTrigger className="w-16 md:w-[auto]">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
