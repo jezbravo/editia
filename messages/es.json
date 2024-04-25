@@ -15,5 +15,8 @@
   "CollectionPage": {
     "Edits": "Ediciones Recientes (general)",
     "List": "Lista Vacía"
+  },
+  "SearchPage": {
+    "placeholder": "Buscar"
   }
 }

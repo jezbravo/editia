@@ -1,4 +1,5 @@
 "use client";
+import { useLocale } from "next-intl";
 
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -11,6 +12,7 @@ export const Search = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
+  const locale = useLocale();
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -36,19 +38,21 @@ export const Search = () => {
   }, [router, searchParams, query]);
 
   return (
-    <div className="search">
-      <Image
-        src="/assets/icons/search.svg"
-        alt="search"
-        width={24}
-        height={24}
-      />
+    <>
+      <div className="search">
+        <Image
+          src="/assets/icons/search.svg"
+          alt="search"
+          width={24}
+          height={24}
+        />
 
-      <Input
-        className="search-field"
-        placeholder="Search"
-        onChange={(e) => setQuery(e.target.value)}
-      />
-    </div>
+        <Input
+          className="search-field"
+          placeholder={locale === "en" ? "Search" : "Buscar"}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+    </>
   );
 };

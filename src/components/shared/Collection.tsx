@@ -1,6 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
-import { NextIntlClientProvider, useLocale } from "next-intl";
+import { NextIntlClientProvider, useLocale, useTranslations } from "next-intl";
 
 import Image from "next/image";
 import Link from "next/link";

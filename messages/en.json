@@ -15,5 +15,8 @@
   "CollectionPage": {
     "Edits": "Recent Edits (general)",
     "List": "Empty List"
+  },
+  "SearchPage": {
+    "placeholder": "Search"
   }
 }
