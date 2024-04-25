@@ -7,11 +7,13 @@ import { usePathname } from "next/navigation";
 import { NavLinks } from "@/src/constants-2";
 import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/src/constants";
 
 const Sidebar = () => {
   const pathname = usePathname();
   const [links, setLinks] = useState<
+    { label: string; route: string; icon: string }[]
+  >([]);
+  const [otherLinks, setOtherLinks] = useState<
     { label: string; route: string; icon: string }[]
   >([]);
 
@@ -24,7 +26,14 @@ const Sidebar = () => {
     fetchNavLinks();
   }, []);
 
-  const otherLinks = navLinks.slice(6);
+  useEffect(() => {
+    async function fetchNavLinks() {
+      const otherLinks = await NavLinks();
+      // Actualizar el estado con los enlaces obtenidos
+      setOtherLinks(otherLinks.slice(6));
+    }
+    fetchNavLinks();
+  }, []);
 
   return (
     <aside className="sidebar">

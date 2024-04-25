@@ -3,6 +3,13 @@
     "home-heading": "¡Libera tu visión creativa con Editia!"
   },
   "navLinks": {
-    "Home": "Inicio"
+    "Home": "Inicio",
+    "Image Restore": "Restauración de Imagen",
+    "Generative Fill": "Relleno Generativo",
+    "Object Remove": "Eliminar Objeto",
+    "Object Recolor": "Recolorear Objeto",
+    "Background Remove": "Eliminar Fondo",
+    "Profile": "Perfil",
+    "Buy Credits": "Comprar Créditos"
   }
 }

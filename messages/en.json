@@ -3,6 +3,13 @@
     "home-heading": "Unleash your creative vision with Editia"
   },
   "navLinks": {
-    "Home": "Home"
+    "Home": "Home",
+    "Image Restore": "Image Restore",
+    "Generative Fill": "Generative Fill",
+    "Object Remove": "Object Remove",
+    "Object Recolor": "Object Recolor",
+    "Background Remove": "Background Remove",
+    "Profile": "Profile",
+    "Buy Credits": "Buy Credits"
   }
 }
