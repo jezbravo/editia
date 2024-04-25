@@ -20,7 +20,6 @@ export default function LanguageSwitcher() {
   const onSelectChange = (nextLocale: string) => {
     startTransition(() => {
       router.replace(`/${nextLocale}`);
-      // router.refresh();
     });
   };
 

@@ -1,5 +1,5 @@
 import { Collection } from "@/src/components/shared/Collection";
-import { navLinks } from "@/src/constants";
+import { NavLinks } from "@/src/constants-2";
 import { getAllImages } from "@/src/lib/actions/image.actions";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +16,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
       <section className="home">
         <h1 className="home-heading">{t("home-heading")}</h1>
         <ul className="flex-center w-full gap-20">
-          {navLinks.slice(1, 6).map((link) => (
+          {(await NavLinks()).slice(1, 6).map((link) => (
             <Link
               key={link.route}
               href={link.route}
