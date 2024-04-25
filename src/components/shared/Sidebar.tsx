@@ -4,11 +4,27 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navLinks } from "@/src/constants";
+import { NavLinks } from "@/src/constants-2";
 import { Button } from "../ui/button";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const [links, setLinks] = useState<
+    { label: string; route: string; icon: string }[]
+  >([]);
+
+  useEffect(() => {
+    async function fetchNavLinks() {
+      const navLinks = await NavLinks();
+      // Actualizar el estado con los enlaces obtenidos
+      setLinks(navLinks.slice(0, 6));
+    }
+    fetchNavLinks();
+  }, []);
+
+  const otherLinks = links.slice(6);
+
   return (
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
@@ -23,7 +39,7 @@ const Sidebar = () => {
         <nav className="sidebar-nav">
           <SignedIn>
             <ul className="sidebar-nav_elements">
-              {navLinks.slice(0, 6).map((link) => {
+              {links.map((link) => {
                 const isActive = link.route === pathname;
                 return (
                   <li
@@ -50,7 +66,7 @@ const Sidebar = () => {
             </ul>
 
             <ul className="sidebar-nav_elements">
-              {navLinks.slice(6).map((link) => {
+              {otherLinks.map((link) => {
                 const isActive = link.route === pathname;
                 return (
                   <li

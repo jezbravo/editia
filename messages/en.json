@@ -1,5 +1,8 @@
 {
   "Home": {
     "home-heading": "Unleash your creative vision with Editia"
+  },
+  "navLinks": {
+    "Home": "Home"
   }
 }
