@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+import { NextIntlClientProvider, useLocale } from "next-intl";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -32,6 +34,8 @@ export const Collection = ({
 }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const t = useTranslations("CollectionPage");
+  const locale = useLocale();
 
   // PAGINATION HANDLER
   const onPageChange = (action: string) => {
@@ -48,48 +52,48 @@ export const Collection = ({
 
   return (
     <>
-      <div className="collection-heading">
-        <h2 className="h2-bold text-dark-600">Recent Edits</h2>
-        {hasSearch && <Search />}
-      </div>
-
-      {images.length > 0 ? (
-        <ul className="collection-list">
-          {images.map((image) => (
-            <Card image={image} key={image._id} />
-          ))}
-        </ul>
-      ) : (
-        <div className="collection-empty">
-          <p className="p-20-semibold">Empty List</p>
+      <NextIntlClientProvider locale={locale}>
+        <div className="collection-heading">
+          <h2 className="h2-bold text-dark-600">{t("Edits")}</h2>
+          {hasSearch && <Search />}
         </div>
-      )}
+        {images.length > 0 ? (
+          <ul className="collection-list">
+            {images.map((image) => (
+              <Card image={image} key={image._id} />
+            ))}
+          </ul>
+        ) : (
+          <div className="collection-empty">
+            <p className="p-20-semibold">{t("List")}</p>
+          </div>
+        )}
+        {totalPages > 1 && (
+          <Pagination className="mt-10">
+            <PaginationContent className="flex w-full">
+              <Button
+                disabled={Number(page) <= 1}
+                className="collection-btn"
+                onClick={() => onPageChange("prev")}
+              >
+                <PaginationPrevious className="hover:bg-transparent hover:text-white" />
+              </Button>
 
-      {totalPages > 1 && (
-        <Pagination className="mt-10">
-          <PaginationContent className="flex w-full">
-            <Button
-              disabled={Number(page) <= 1}
-              className="collection-btn"
-              onClick={() => onPageChange("prev")}
-            >
-              <PaginationPrevious className="hover:bg-transparent hover:text-white" />
-            </Button>
+              <p className="flex-center p-16-medium w-fit flex-1">
+                {page} / {totalPages}
+              </p>
 
-            <p className="flex-center p-16-medium w-fit flex-1">
-              {page} / {totalPages}
-            </p>
-
-            <Button
-              className="button w-32 bg-green-gradient bg-cover text-white"
-              onClick={() => onPageChange("next")}
-              disabled={Number(page) >= totalPages}
-            >
-              <PaginationNext className="hover:bg-transparent hover:text-white" />
-            </Button>
-          </PaginationContent>
-        </Pagination>
-      )}
+              <Button
+                className="button w-32 bg-green-gradient bg-cover text-white"
+                onClick={() => onPageChange("next")}
+                disabled={Number(page) >= totalPages}
+              >
+                <PaginationNext className="hover:bg-transparent hover:text-white" />
+              </Button>
+            </PaginationContent>
+          </Pagination>
+        )}
+      </NextIntlClientProvider>
     </>
   );
 };

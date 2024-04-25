@@ -11,5 +11,9 @@
     "Background Remove": "Background Remove",
     "Profile": "Profile",
     "Buy Credits": "Buy Credits"
+  },
+  "CollectionPage": {
+    "Edits": "Recent Edits (general)",
+    "List": "Empty List"
   }
 }

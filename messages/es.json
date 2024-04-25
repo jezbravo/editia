@@ -11,5 +11,9 @@
     "Background Remove": "Eliminar Fondo",
     "Profile": "Perfil",
     "Buy Credits": "Comprar Créditos"
+  },
+  "CollectionPage": {
+    "Edits": "Ediciones Recientes (general)",
+    "List": "Lista Vacía"
   }
 }
