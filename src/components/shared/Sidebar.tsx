@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { NavLinks } from "@/src/constants-2";
 import { Button } from "../ui/button";
 import { useEffect, useState } from "react";
+import { navLinks } from "@/src/constants";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ const Sidebar = () => {
     fetchNavLinks();
   }, []);
 
-  const otherLinks = links.slice(6);
+  const otherLinks = navLinks.slice(6);
 
   return (
     <aside className="sidebar">
