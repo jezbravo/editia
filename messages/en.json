@@ -13,10 +13,29 @@
     "Buy Credits": "Buy Credits"
   },
   "CollectionPage": {
-    "Edits": "Recent Edits (general)",
+    "Edits": "Recent Edits",
     "List": "Empty List"
   },
-  "SearchPage": {
-    "placeholder": "Search"
+  "transformationTypes": {
+    "restore": {
+      "title": "Restore Image",
+      "subtitle": "Refine images by removing noise and imperfections"
+    },
+    "removeBackground": {
+      "title": "Background Remove",
+      "subtitle": "Removes the background of the image using AI"
+    },
+    "fill": {
+      "title": "Generative Fill",
+      "subtitle": "Enhance an image's dimensions using AI outpainting"
+    },
+    "remove": {
+      "title": "Object Remove",
+      "subtitle": "Identify and eliminate objects from images"
+    },
+    "recolor": {
+      "title": "Object Recolor",
+      "subtitle": "Identify and recolor objects from the image"
+    }
   }
 }

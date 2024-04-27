@@ -124,48 +124,58 @@ export async function NavLinks() {
 //     ],
 //   },
 // ];
+// interface getTransformationTypes {
+//   type: string;
+//   title: string;
+//   subtitle: string;
+//   config: { [key: string]: any };
+//   icon: string;
+// }
 
-// export const transformationTypes = {
-//   restore: {
-//     type: "restore",
-//     title: "Restore Image",
-//     subtitle: "Refine images by removing noise and imperfections",
-//     config: { restore: true },
-//     icon: "image.svg",
-//   },
-//   removeBackground: {
-//     type: "removeBackground",
-//     title: "Background Remove",
-//     subtitle: "Removes the background of the image using AI",
-//     config: { removeBackground: true },
-//     icon: "camera.svg",
-//   },
-//   fill: {
-//     type: "fill",
-//     title: "Generative Fill",
-//     subtitle: "Enhance an image's dimensions using AI outpainting",
-//     config: { fillBackground: true },
-//     icon: "stars.svg",
-//   },
-//   remove: {
-//     type: "remove",
-//     title: "Object Remove",
-//     subtitle: "Identify and eliminate objects from images",
-//     config: {
-//       remove: { prompt: "", removeShadow: true, multiple: true },
-//     },
-//     icon: "scan.svg",
-//   },
-//   recolor: {
-//     type: "recolor",
-//     title: "Object Recolor",
-//     subtitle: "Identify and recolor objects from the image",
-//     config: {
-//       recolor: { prompt: "", to: "", multiple: true },
-//     },
-//     icon: "filter.svg",
-//   },
-// };
+export async function getTransformationTypes() {
+  const t = await getTranslations("transformationTypes");
+  return {
+    restore: {
+      type: "restore",
+      title: t("restore.title"),
+      subtitle: t("restore.subtitle"),
+      config: { restore: true },
+      icon: "image.svg",
+    },
+    removeBackground: {
+      type: "removeBackground",
+      title: t("removeBackground.title"),
+      subtitle: t("removeBackground.subtitle"),
+      config: { removeBackground: true },
+      icon: "camera.svg",
+    },
+    fill: {
+      type: "fill",
+      title: t("fill.title"),
+      subtitle: t("fill.subtitle"),
+      config: { fillBackground: true },
+      icon: "stars.svg",
+    },
+    remove: {
+      type: "remove",
+      title: t("remove.title"),
+      subtitle: t("remove.subtitle"),
+      config: {
+        remove: { prompt: "", removeShadow: true, multiple: true },
+      },
+      icon: "scan.svg",
+    },
+    recolor: {
+      type: "recolor",
+      title: t("recolor.title"),
+      subtitle: t("recolor.subtitle"),
+      config: {
+        recolor: { prompt: "", to: "", multiple: true },
+      },
+      icon: "filter.svg",
+    },
+  };
+}
 
 // export const aspectRatioOptions = {
 //   "1:1": {

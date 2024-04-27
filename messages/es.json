@@ -13,10 +13,29 @@
     "Buy Credits": "Comprar Créditos"
   },
   "CollectionPage": {
-    "Edits": "Ediciones Recientes (general)",
+    "Edits": "Ediciones Recientes",
     "List": "Lista Vacía"
   },
-  "SearchPage": {
-    "placeholder": "Buscar"
+  "transformationTypes": {
+    "restore": {
+      "title": "Restaurar Imagen",
+      "subtitle": "Refina imágenes removiendo ruido e imperfecciones"
+    },
+    "removeBackground": {
+      "title": "Eliminar Fondo",
+      "subtitle": "Remueve el fondo de la imagen usando IA"
+    },
+    "fill": {
+      "title": "Relleno Generativo",
+      "subtitle": "Mejora las dimensiones de una imagen creando expansiones con IA"
+    },
+    "remove": {
+      "title": "Eliminar Objeto",
+      "subtitle": "Identifica y elemina objetos de la imagen"
+    },
+    "recolor": {
+      "title": "Object Recolor",
+      "subtitle": "Identifica y cambia el color de objetos de la imagen"
+    }
   }
 }
