@@ -49,5 +49,10 @@
     "title-2": "Something went wrong while uploading",
     "description-2": "Please try again",
     "upload": "Click here to upload image"
+  },
+  "ProfilePage": {
+    "Header": "Profile",
+    "Credits": "AVAILABLE CREDITS",
+    "Edits": "IMAGE EDITIONS DONE"
   }
 }

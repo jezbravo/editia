@@ -35,7 +35,7 @@
     },
     "recolor": {
       "title": "Object Recolor",
-      "subtitle": "Identifica y cambia el color de objetos de la imagen"
+      "subtitle": "Identifica y cambia el color de un objeto en la imagen"
     }
   },
   "TransformedImage": {
@@ -49,5 +49,10 @@
     "title-2": "Algo salió mal mientras se subía la imagen",
     "description-2": "Por favor intente de nuevo",
     "upload": "Haga clic aquí para subir una imagen"
+  },
+  "ProfilePage": {
+    "Header": "Perfil",
+    "Credits": "CRÉDITOS DISPONIBLES",
+    "Edits": "EDICIONES REALIZADAS"
   }
 }

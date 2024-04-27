@@ -6,6 +6,7 @@ import { Collection } from "@/src/components/shared/Collection";
 import Header from "@/src/components/shared/Header";
 import { getUserImages } from "@/src/lib/actions/image.actions";
 import { getUserById } from "@/src/lib/actions/user.actions";
+import { getTranslations } from "next-intl/server";
 
 const Profile = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
@@ -16,12 +17,14 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
   const user = await getUserById(userId);
   const images = await getUserImages({ page, userId: user._id });
 
+  const t = await getTranslations("ProfilePage");
+
   return (
     <>
-      <Header title="Profile" />
+      <Header title={t("Header")} />
       <section className="profile">
         <div className="profile-balance">
-          <p className="p-14-medium md:p-16-medium">CREDITS AVAILABLE</p>
+          <p className="p-14-medium md:p-16-medium">{t("Credits")}</p>
           <div className="mt-4 flex items-center gap-4">
             <Image
               src="/assets/icons/coins.svg"
@@ -35,7 +38,7 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
         </div>
 
         <div className="profile-image-manipulation">
-          <p className="p-14-medium md:p-16-medium">IMAGE MANIPULATION DONE</p>
+          <p className="p-14-medium md:p-16-medium">{t("Edits")}</p>
           <div className="mt-4 flex items-center gap-4">
             <Image
               src="/assets/icons/photo.svg"
