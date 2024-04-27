@@ -1,4 +1,6 @@
 "use client";
+import { useLocale } from "next-intl";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -55,6 +57,8 @@ const TransformationForm = ({
   config = null,
 }: TransformationFormProps) => {
   const transformationType = transformationTypes[type];
+
+  const locale = useLocale();
 
   const [image, setImage] = useState(data);
   const [newTransformation, setNewTransformation] =
@@ -203,7 +207,7 @@ const TransformationForm = ({
         <CustomField
           control={form.control}
           name="title"
-          formLabel="Image Title"
+          formLabel={locale === "en" ? "Image Title" : "Título de la Imagen"}
           className="w-full"
           render={({ field }) => <Input {...field} className="input-field" />}
         />
@@ -212,7 +216,7 @@ const TransformationForm = ({
           <CustomField
             control={form.control}
             name="aspectRatio"
-            formLabel="Aspect Ratio"
+            formLabel={locale === "en" ? "Aspect Ratio" : "Relación de Aspecto"}
             className="w-full"
             render={({ field }) => (
               <Select
@@ -222,7 +226,11 @@ const TransformationForm = ({
                 value={field.value}
               >
                 <SelectTrigger className="select-field">
-                  <SelectValue placeholder="Select Size" />
+                  <SelectValue
+                    placeholder={
+                      locale === "en" ? "Select size" : "Elija el tamaño"
+                    }
+                  />
                 </SelectTrigger>
                 <SelectContent>
                   {Object.keys(aspectRatioOptions).map((key) => (
@@ -242,7 +250,13 @@ const TransformationForm = ({
               control={form.control}
               name="prompt"
               formLabel={
-                type === "remove" ? "Object to remove" : "Object to recolor"
+                type === "remove"
+                  ? locale === "es"
+                    ? "Objeto a remover"
+                    : "Object to remove"
+                  : locale === "es"
+                    ? "Objeto a recolorear"
+                    : "Object to recolor"
               }
               className="w-full"
               render={({ field }) => (
@@ -265,7 +279,9 @@ const TransformationForm = ({
               <CustomField
                 control={form.control}
                 name="color"
-                formLabel="Replacement Color"
+                formLabel={
+                  locale === "en" ? "Replacement Color" : "Color de Reemplazo"
+                }
                 className="w-full"
                 render={({ field }) => (
                   <Input
@@ -318,14 +334,26 @@ const TransformationForm = ({
             disabled={isTransforming || newTransformation === null}
             onClick={onTransformHandler}
           >
-            {isTransforming ? "Transforming..." : "Apply Transformation"}
+            {isTransforming
+              ? locale === "es"
+                ? "Transformando..."
+                : "Transforming..."
+              : locale === "es"
+                ? "Aplicar Transformación"
+                : "Apply Transformation"}
           </Button>
           <Button
             type="submit"
             className="submit-button capitalize"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Save Image"}
+            {isSubmitting
+              ? locale === "es"
+                ? "Enviando..."
+                : "Submitting..."
+              : locale === "es"
+                ? "Guardar Imagen"
+                : "Save Image"}
           </Button>
         </div>
       </form>

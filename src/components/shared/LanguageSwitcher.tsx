@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useTransition } from "react";
 import {
   Select,
@@ -15,11 +15,16 @@ import Image from "next/image";
 export default function LanguageSwitcher() {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const pathname = usePathname();
+  const cleanPathname =
+    pathname.startsWith("/en") || pathname.startsWith("/es")
+      ? pathname.slice(3)
+      : pathname;
   const localActive = useLocale();
 
   const onSelectChange = (nextLocale: string) => {
     startTransition(() => {
-      router.replace(`/${nextLocale}`);
+      router.replace(`/${nextLocale}/${cleanPathname}`);
     });
   };
 
