@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import { Button } from "../ui/button";
 import { MercadoPagoConfig, Preference } from "mercadopago";
 
+import { getTranslations } from "next-intl/server";
+
 // Agrega credenciales
 const client = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN!,
@@ -61,15 +63,17 @@ const Checkout: React.FC<CheckoutProps> = async ({
     redirect(preference.init_point!);
   };
 
+  const t = await getTranslations("Checkout");
+
   return (
     <form action={handlePurchase}>
       <section>
         <Button
           type="submit"
           role="link"
-          className="bg-green-gradient w-full rounded-full bg-cover"
+          className="w-full rounded-full bg-green-gradient bg-cover"
         >
-          Buy Credits
+          {t("buy")}
         </Button>
       </section>
     </form>

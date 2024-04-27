@@ -83,5 +83,8 @@
       "label-3": "Prioridad en Soporte al Cliente",
       "label-4": "Actualizaciones prioritarias"
     }
+  },
+  "Checkout": {
+    "buy": "Comprar Créditos"
   }
 }

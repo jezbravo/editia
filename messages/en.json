@@ -84,5 +84,8 @@
       "label-3": "Priority Customer Support",
       "label-4": "Priority Updates"
     }
+  },
+  "Checkout": {
+    "buy": "Buy Credits"
   }
 }
