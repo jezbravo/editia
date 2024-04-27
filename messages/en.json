@@ -42,5 +42,12 @@
     "transformed": "Transformed",
     "Progress": "Transformation in progress. Please wait...",
     "Transformed": "Transformed Image"
+  },
+  "MediaUploader": {
+    "title": "Image uploaded successfully",
+    "description": "1 credit was deducted from your account",
+    "title-2": "Something went wrong while uploading",
+    "description-2": "Please try again",
+    "upload": "Click here to upload image"
   }
 }
