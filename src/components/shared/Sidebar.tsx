@@ -10,9 +10,15 @@ import { useEffect, useState } from "react";
 
 const Sidebar = () => {
   const pathname = usePathname();
-  const [links, setLinks] = useState<
+  const cleanPathname =
+    pathname.startsWith("/en") || pathname.startsWith("/es")
+      ? pathname.slice(3)
+      : pathname;
+
+  const [navLinks, setNavLinks] = useState<
     { label: string; route: string; icon: string }[]
   >([]);
+
   const [otherLinks, setOtherLinks] = useState<
     { label: string; route: string; icon: string }[]
   >([]);
@@ -21,7 +27,7 @@ const Sidebar = () => {
     async function fetchNavLinks() {
       const navLinks = await NavLinks();
       // Actualizar el estado con los enlaces obtenidos
-      setLinks(navLinks.slice(0, 6));
+      setNavLinks(navLinks.slice(0, 6));
     }
     fetchNavLinks();
   }, []);
@@ -49,9 +55,8 @@ const Sidebar = () => {
         <nav className="sidebar-nav">
           <SignedIn>
             <ul className="sidebar-nav_elements">
-              {links.map((link) => {
-                const isActive = link.route === pathname;
-                console.log(isActive);
+              {navLinks.map((link) => {
+                const isActive = link.route === cleanPathname;
                 return (
                   <li
                     key={link.route}
@@ -78,7 +83,7 @@ const Sidebar = () => {
 
             <ul className="sidebar-nav_elements">
               {otherLinks.map((link) => {
-                const isActive = link.route === pathname;
+                const isActive = link.route === cleanPathname;
                 return (
                   <li
                     key={link.route}
