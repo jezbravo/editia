@@ -37,5 +37,10 @@
       "title": "Object Recolor",
       "subtitle": "Identify and recolor objects from the image"
     }
+  },
+  "TransformedImage": {
+    "transformed": "Transformed",
+    "Progress": "Transformation in progress. Please wait...",
+    "Transformed": "Transformed Image"
   }
 }
