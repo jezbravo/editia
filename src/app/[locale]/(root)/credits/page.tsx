@@ -3,31 +3,33 @@ import Image from "next/image";
 
 import Header from "@/src/components/shared/Header";
 import { Button } from "@/src/components/ui/button";
-import { plans } from "@/src/constants";
+import { Plans } from "@/src/constants-2";
 import Checkout from "@/src/components/shared/Checkout";
+
+import { getTranslations } from "next-intl/server";
 
 const Credits = async () => {
   const user = await currentUser();
   const userId = user!.id;
   const userName = user!.username;
+  const t = await getTranslations("CreditsPage");
 
   return (
     <>
-      <Header
-        title="Buy Credits"
-        subtitle="Choose a credit package that suits your needs!"
-      />
+      <Header title={t("title")} subtitle={t("subtitle")} />
       <section>
         <ul className="credits-list">
-          {plans.map((plan) => (
+          {(await Plans()).map((plan) => (
             <li key={plan.name} className="credits-item">
               <div className="flex-center flex-col gap-3">
                 <Image src={plan.icon} alt="check" width={50} height={50} />
                 <p className="p-20-semibold mt-2 text-purple-500">
                   {plan.name}
                 </p>
-                <p className="h1-semibold text-dark-600">${plan.price}</p>
-                <p className="p-16-regular">{plan.credits} Credits</p>
+                <p className="h1-semibold text-dark-600">${plan.price} ARS</p>
+                <p className="p-16-regular">
+                  {plan.credits} {t("credits")}
+                </p>
               </div>
 
               {/* Inclusions */}
@@ -52,7 +54,7 @@ const Credits = async () => {
 
               {plan.name === "Free" ? (
                 <Button variant="outline" className="credits-btn">
-                  Free Consumable
+                  {t("free")}
                 </Button>
               ) : (
                 <SignedIn>

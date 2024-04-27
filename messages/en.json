@@ -54,5 +54,35 @@
     "Header": "Profile",
     "Credits": "AVAILABLE CREDITS",
     "Edits": "IMAGE EDITIONS DONE"
+  },
+  "CreditsPage": {
+    "title": "Buy Credits",
+    "subtitle": "Choose a credit package that suits your needs",
+    "credits": "Credits",
+    "free": "Free Consumable"
+  },
+  "Plans": {
+    "name": "Free",
+    "inclusions": {
+      "label-1": "10 Free Credits",
+      "label-2": "Basic Access to Services",
+      "label-3": "Priority Customer Support",
+      "label-4": "Priority Updates"
+    },
+
+    "name-2": "Pro Package",
+    "inclusions-2": {
+      "label-1": "100 Credits",
+      "label-2": "Full Access to Services",
+      "label-3": "Priority Customer Support",
+      "label-4": "Priority Updates"
+    },
+    "name-3": "Premium Package",
+    "inclusions-3": {
+      "label-1": "1000 Credits",
+      "label-2": "Full Access to Services",
+      "label-3": "Priority Customer Support",
+      "label-4": "Priority Updates"
+    }
   }
 }

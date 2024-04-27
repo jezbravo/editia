@@ -54,5 +54,34 @@
     "Header": "Perfil",
     "Credits": "CRÉDITOS DISPONIBLES",
     "Edits": "EDICIONES REALIZADAS"
+  },
+  "CreditsPage": {
+    "title": "Comprar Créditos",
+    "subtitle": "Elija el paquete de créditos que mejor se ajuste a sus necesidades",
+    "credits": "Créditos",
+    "free": "Gratis (por defecto)"
+  },
+  "Plans": {
+    "name": "Gratis",
+    "inclusions": {
+      "label-1": "10 Créditos Gratis",
+      "label-2": "Acceso básico a los Servicios",
+      "label-3": "Prioridad en Soporte al Cliente",
+      "label-4": "Actualizaciones prioritarias"
+    },
+    "name-2": "Paquete Pro",
+    "inclusions-2": {
+      "label-1": "100 Créditos",
+      "label-2": "Completo acceso a los Servicios",
+      "label-3": "Prioridad en Soporte al Cliente",
+      "label-4": "Actualizaciones prioritarias"
+    },
+    "name-3": "Paquete Premium",
+    "inclusions-3": {
+      "label-1": "1000 Créditos",
+      "label-2": "Completo acceso a los Servicios",
+      "label-3": "Prioridad en Soporte al Cliente",
+      "label-4": "Actualizaciones prioritarias"
+    }
   }
 }

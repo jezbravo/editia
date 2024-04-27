@@ -47,83 +47,87 @@ export async function NavLinks() {
   ];
 }
 
-// export const plans = [
-//   {
-//     _id: 1,
-//     name: "Free",
-//     icon: "/assets/icons/free-plan.svg",
-//     price: 0,
-//     credits: 10,
-//     inclusions: [
-//       {
-//         label: "10 Free Credits",
-//         isIncluded: true,
-//       },
-//       {
-//         label: "Basic Access to Services",
-//         isIncluded: true,
-//       },
-//       {
-//         label: "Priority Customer Support",
-//         isIncluded: false,
-//       },
-//       {
-//         label: "Priority Updates",
-//         isIncluded: false,
-//       },
-//     ],
-//   },
-//   {
-//     _id: 2,
-//     name: "Pro Package",
-//     icon: "/assets/icons/free-plan.svg",
-//     price: 100,
-//     credits: 100,
-//     inclusions: [
-//       {
-//         label: "100 Credits",
-//         isIncluded: true,
-//       },
-//       {
-//         label: "Full Access to Services",
-//         isIncluded: true,
-//       },
-//       {
-//         label: "Priority Customer Support",
-//         isIncluded: true,
-//       },
-//       {
-//         label: "Priority Updates",
-//         isIncluded: false,
-//       },
-//     ],
-//   },
-//   {
-//     _id: 3,
-//     name: "Premium Package",
-//     icon: "/assets/icons/free-plan.svg",
-//     price: 199,
-//     credits: 1000,
-//     inclusions: [
-//       {
-//         label: "1000 Credits",
-//         isIncluded: true,
-//       },
-//       {
-//         label: "Full Access to Services",
-//         isIncluded: true,
-//       },
-//       {
-//         label: "Priority Customer Support",
-//         isIncluded: true,
-//       },
-//       {
-//         label: "Priority Updates",
-//         isIncluded: true,
-//       },
-//     ],
-//   },
-// ];
+export async function Plans() {
+  const t = await getTranslations("Plans");
+  return [
+    {
+      _id: 1,
+      name: t("name"),
+      icon: "/assets/icons/free-plan.svg",
+      price: 0,
+      credits: 10,
+      inclusions: [
+        {
+          label: t("inclusions.label-1"),
+          isIncluded: true,
+        },
+        {
+          label: t("inclusions.label-2"),
+          isIncluded: true,
+        },
+        {
+          label: t("inclusions.label-3"),
+          isIncluded: false,
+        },
+        {
+          label: t("inclusions.label-4"),
+          isIncluded: false,
+        },
+      ],
+    },
+    {
+      _id: 2,
+      name: t("name-2"),
+      icon: "/assets/icons/free-plan.svg",
+      price: 100,
+      credits: 100,
+      inclusions: [
+        {
+          label: t("inclusions-2.label-1"),
+          isIncluded: true,
+        },
+        {
+          label: t("inclusions-2.label-2"),
+          isIncluded: true,
+        },
+        {
+          label: t("inclusions-2.label-3"),
+          isIncluded: true,
+        },
+        {
+          label: t("inclusions-2.label-4"),
+          isIncluded: false,
+        },
+      ],
+    },
+    {
+      _id: 3,
+      name: t("name-3"),
+      icon: "/assets/icons/free-plan.svg",
+      price: 199,
+      credits: 1000,
+      inclusions: [
+        {
+          label: t("inclusions-3.label-1"),
+          isIncluded: true,
+        },
+        {
+          label: t("inclusions-3.label-2"),
+          isIncluded: true,
+        },
+        {
+          label: t("inclusions-3.label-3"),
+          isIncluded: true,
+        },
+        {
+          label: t("inclusions-3.label-4"),
+          isIncluded: true,
+        },
+      ],
+    },
+  ];
+}
+
 // interface getTransformationTypes {
 //   type: string;
 //   title: string;
