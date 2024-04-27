@@ -1,15 +1,29 @@
 "use client";
 
-import { navLinks } from "@/src/constants";
+import { NavLinks } from "@/src/constants-2";
 import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/src/components/ui/sheet";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { useEffect, useState } from "react";
 
 const MobileNav = () => {
   const pathname = usePathname();
+
+  const [links, setLinks] = useState<
+    { label: string; route: string; icon: string }[]
+  >([]);
+
+  useEffect(() => {
+    async function fetchNavLinks() {
+      const navLinks = await NavLinks();
+      // Actualizar el estado con los enlaces obtenidos
+      setLinks(navLinks);
+    }
+    fetchNavLinks();
+  }, []);
 
   return (
     <header className="header">
@@ -45,7 +59,7 @@ const MobileNav = () => {
                 />
 
                 <ul className="header-nav_elements">
-                  {navLinks.map((link) => {
+                  {links.map((link) => {
                     const isActive = link.route === pathname;
                     return (
                       <li
