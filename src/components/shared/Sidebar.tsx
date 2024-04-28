@@ -11,7 +11,9 @@ import { useEffect, useState } from "react";
 const Sidebar = () => {
   const pathname = usePathname();
   const cleanPathname =
-    pathname.startsWith("/en") || pathname.startsWith("/es")
+    pathname.startsWith("/en") ||
+    pathname.startsWith("/es") ||
+    pathname.startsWith("/br")
       ? pathname.slice(3)
       : pathname;
 

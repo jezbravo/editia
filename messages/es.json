@@ -31,10 +31,10 @@
     },
     "remove": {
       "title": "Eliminar Objeto",
-      "subtitle": "Identifica y elemina objetos de la imagen"
+      "subtitle": "Identifica y elimina objetos de la imagen"
     },
     "recolor": {
-      "title": "Object Recolor",
+      "title": "Recolorear Objeto",
       "subtitle": "Identifica y cambia el color de un objeto en la imagen"
     }
   },
@@ -107,7 +107,7 @@
     "dialog-header": "Créditos Insuficientes",
     "dialog-title": "Ups... ¡Parece que te has quedado sin créditos gratuitos!",
     "dialog-description": "Pero no te preocupes: puedes seguir disfrutando de nuestros servicios obteniendo más créditos.",
-    "dialog-cancel": "No, Cancelar",
-    "dialog-action": "Sí, Proceder"
+    "dialog-cancel": "No, cancelar",
+    "dialog-action": "Sí, proceder"
   }
 }

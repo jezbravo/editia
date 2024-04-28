@@ -207,7 +207,13 @@ const TransformationForm = ({
         <CustomField
           control={form.control}
           name="title"
-          formLabel={locale === "en" ? "Image Title" : "Título de la Imagen"}
+          formLabel={
+            locale === "en"
+              ? "Image Title"
+              : locale == "br"
+                ? "Título da imagem"
+                : "Título de la Imagen"
+          }
           className="w-full"
           render={({ field }) => <Input {...field} className="input-field" />}
         />
@@ -216,7 +222,13 @@ const TransformationForm = ({
           <CustomField
             control={form.control}
             name="aspectRatio"
-            formLabel={locale === "en" ? "Aspect Ratio" : "Relación de Aspecto"}
+            formLabel={
+              locale === "en"
+                ? "Aspect Ratio"
+                : locale === "br"
+                  ? "Proporção da tela"
+                  : "Relación de Aspecto"
+            }
             className="w-full"
             render={({ field }) => (
               <Select
@@ -228,7 +240,11 @@ const TransformationForm = ({
                 <SelectTrigger className="select-field">
                   <SelectValue
                     placeholder={
-                      locale === "en" ? "Select size" : "Elija el tamaño"
+                      locale === "en"
+                        ? "Select size"
+                        : locale === "br"
+                          ? "Escolha o tamanho"
+                          : "Elija el tamaño"
                     }
                   />
                 </SelectTrigger>
@@ -253,10 +269,14 @@ const TransformationForm = ({
                 type === "remove"
                   ? locale === "es"
                     ? "Objeto a remover"
-                    : "Object to remove"
+                    : locale === "br"
+                      ? "Objeto a ser removido"
+                      : "Object to remove"
                   : locale === "es"
                     ? "Objeto a recolorear"
-                    : "Object to recolor"
+                    : locale === "br"
+                      ? "Objeto para recolorir"
+                      : "Object to recolor"
               }
               className="w-full"
               render={({ field }) => (
@@ -280,7 +300,11 @@ const TransformationForm = ({
                 control={form.control}
                 name="color"
                 formLabel={
-                  locale === "en" ? "Replacement Color" : "Color de Reemplazo"
+                  locale === "en"
+                    ? "Replacement Color"
+                    : locale === "br"
+                      ? "Cor de substituição"
+                      : "Color de Reemplazo"
                 }
                 className="w-full"
                 render={({ field }) => (
@@ -337,10 +361,14 @@ const TransformationForm = ({
             {isTransforming
               ? locale === "es"
                 ? "Transformando..."
-                : "Transforming..."
+                : locale === "br"
+                  ? "Transformando..."
+                  : "Transforming..."
               : locale === "es"
                 ? "Aplicar Transformación"
-                : "Apply Transformation"}
+                : locale === "br"
+                  ? "Aplicar transformação"
+                  : "Apply Transformation"}
           </Button>
           <Button
             type="submit"
@@ -350,10 +378,14 @@ const TransformationForm = ({
             {isSubmitting
               ? locale === "es"
                 ? "Enviando..."
-                : "Submitting..."
+                : locale === "br"
+                  ? "Enviando..."
+                  : "Submitting..."
               : locale === "es"
                 ? "Guardar Imagen"
-                : "Save Image"}
+                : locale === "br"
+                  ? "Salvar Imagem"
+                  : "Save Image"}
           </Button>
         </div>
       </form>

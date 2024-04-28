@@ -49,7 +49,9 @@ export const Search = () => {
 
         <Input
           className="search-field"
-          placeholder={locale === "en" ? "Search" : "Buscar"}
+          placeholder={
+            locale === "en" ? "Search" : locale === "br" ? "Procurar" : "Buscar"
+          }
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>

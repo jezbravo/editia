@@ -1,0 +1,113 @@
+{
+  "Home": {
+    "home-heading": "Libere sua visão criativa com a Editia!"
+  },
+  "navLinks": {
+    "Home": "Início",
+    "Image Restore": "Restaurar Imagem",
+    "Generative Fill": "Preenchimento Gerativo",
+    "Object Remove": "Excluir Objeto",
+    "Object Recolor": "Recolorir Objeto",
+    "Background Remove": "Remover Fundo",
+    "Profile": "Perfil",
+    "Buy Credits": "Compre Créditos"
+  },
+  "CollectionPage": {
+    "Edits": "Edições Recentes",
+    "List": "Lista Vazia"
+  },
+  "transformationTypes": {
+    "restore": {
+      "title": "Restaurar Imagem",
+      "subtitle": "Refine imagens removendo ruídos e imperfeições"
+    },
+    "removeBackground": {
+      "title": "Remover Fundo",
+      "subtitle": "Remova o fundo da imagem usando IA"
+    },
+    "fill": {
+      "title": "Preenchimento Gerativo",
+      "subtitle": "Melhore as dimensões de uma imagem criando expansões com IA"
+    },
+    "remove": {
+      "title": "Excluir Objeto",
+      "subtitle": "Identifique e remova objetos da imagem"
+    },
+    "recolor": {
+      "title": "Recolorir Objeto",
+      "subtitle": "Identifique e altere a cor de um objeto na imagem"
+    }
+  },
+  "TransformedImage": {
+    "transformed": "Transformado",
+    "Progress": "Transformação em andamento. Por favor espere...",
+    "Transformed": "Imagem Transformada"
+  },
+  "MediaUploader": {
+    "title": "Imagem enviada com sucesso",
+    "description": "1 crédito foi subtraído da sua conta",
+    "title-2": "Algo deu errado ao enviar a imagem",
+    "description-2": "Por favor, tente novamente",
+    "original": "Original",
+    "upload": "Clique aqui para fazer upload de uma imagem"
+  },
+  "ProfilePage": {
+    "Header": "Perfil",
+    "Credits": "CRÉDITOS DISPONÍVEIS",
+    "Edits": "EDIÇÕES FEITAS"
+  },
+  "CreditsPage": {
+    "title": "Compre Créditos",
+    "subtitle": "Escolha o pacote de crédito que melhor se adapta às suas necessidades",
+    "credits": "Créditos",
+    "free": "Gratuito (padrão)"
+  },
+  "Plans": {
+    "name": "Livre",
+    "inclusions": {
+      "label-1": "10 créditos grátis",
+      "label-2": "Acesso Básico",
+      "label-3": "Prioridade no Suporte ao Cliente",
+      "label-4": "Atualizações prioritárias"
+    },
+    "name-2": "Pacote Pró",
+    "inclusions-2": {
+      "label-1": "100 Créditos",
+      "label-2": "Acesso total aos Serviços",
+      "label-3": "Prioridade no Suporte ao Cliente",
+      "label-4": "Atualizações prioritárias"
+    },
+    "name-3": "Pacote Premium",
+    "inclusions-3": {
+      "label-1": "1000 Créditos",
+      "label-2": "Acesso total aos Serviços",
+      "label-3": "Prioridade no Suporte ao Cliente",
+      "label-4": "Atualizações prioritárias"
+    }
+  },
+  "Checkout": {
+    "buy": "Compre Créditos"
+  },
+  "DeleteConfirmation": {
+    "delete": "Excluir imagem",
+    "sure": "Tem certeza de que deseja apagar esta imagem?",
+    "advice": "Esta ação excluirá a imagem permanentemente",
+    "cancel": "Cancelar",
+    "deleting": "Removendo...",
+    "delete-2": "Eliminar"
+  },
+  "ImageDetails": {
+    "transformation": "Transformação",
+    "color": "Cor",
+    "ratio": "Proporção da tela",
+    "original": "Original",
+    "update": "Actualizar imagem"
+  },
+  "InsufficientCreditsModal": {
+    "dialog-header": "Créditos Insuficientes",
+    "dialog-title": "Ops... Parece que você está sem créditos grátis!",
+    "dialog-description": "Mas não se preocupe: você pode continuar aproveitando nossos serviços ganhando mais créditos.",
+    "dialog-cancel": "Não, cancelar",
+    "dialog-action": "Sim, prosseguir"
+  }
+}

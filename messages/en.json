@@ -107,7 +107,7 @@
     "dialog-header": "Insufficient Credits",
     "dialog-title": "Oops.... Looks like you've run out of free credits!",
     "dialog-description": "No worries, though - you can keep enjoying our services by grabbing more credits.",
-    "dialog-cancel": "No, Cancel",
-    "dialog-action": "Yes, Proceed"
+    "dialog-cancel": "No, cancel",
+    "dialog-action": "Yes, proceed"
   }
 }

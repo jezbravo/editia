@@ -3,7 +3,7 @@ import { authMiddleware } from "@clerk/nextjs";
 import createMiddleware from "next-intl/middleware";
 
 const intlMiddleware = createMiddleware({
-  locales: ["en", "es"],
+  locales: ["en", "es", "br"],
 
   defaultLocale: "en",
 });
@@ -28,6 +28,6 @@ export const config = {
     "/((?!.+\\.[\\w]+$|_next).*)",
     "/",
     "/(api|trpc)(.*)",
-    "/(es|en)/:path*",
+    "/(es|en|br)/:path*",
   ],
 };

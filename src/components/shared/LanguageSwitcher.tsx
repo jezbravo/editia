@@ -17,7 +17,9 @@ export default function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const cleanPathname =
-    pathname.startsWith("/en") || pathname.startsWith("/es")
+    pathname.startsWith("/en") ||
+    pathname.startsWith("/es") ||
+    pathname.startsWith("/br")
       ? pathname.slice(3)
       : pathname;
   const localActive = useLocale();
@@ -48,19 +50,31 @@ export default function LanguageSwitcher() {
                 width={5}
                 height={5}
               />
-              <span>English</span>
+              <span>en-US</span>
             </div>
           </SelectItem>
           <SelectItem value="es">
             <div className="flex items-center hover:cursor-pointer">
               <Image
                 src="/assets/icons/es.svg"
-                alt="UK flag"
+                alt="ES flag"
                 className="mr-2 h-auto w-7"
                 width={5}
                 height={5}
               />
-              <span>Español</span>
+              <span>ES</span>
+            </div>
+          </SelectItem>
+          <SelectItem value="br">
+            <div className="flex items-center hover:cursor-pointer">
+              <Image
+                src="/assets/icons/br.svg"
+                alt="BR flag"
+                className="mr-2 h-auto w-7"
+                width={5}
+                height={5}
+              />
+              <span>BR</span>
             </div>
           </SelectItem>
         </SelectContent>

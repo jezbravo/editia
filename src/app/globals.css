@@ -237,7 +237,7 @@
   }
 
   .credits-btn {
-    @apply w-full rounded-full bg-purple-100 bg-cover text-purple-500 hover:text-purple-500;
+    @apply w-full rounded-full bg-slate-200 bg-cover text-slate-700 hover:text-purple-500;
   }
 
   /* Profile Page */
