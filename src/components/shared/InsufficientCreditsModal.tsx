@@ -3,6 +3,7 @@ import { NextIntlClientProvider, useLocale, useTranslations } from "next-intl";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 import {
   AlertDialog,
@@ -20,6 +21,23 @@ export const InsufficientCreditsModal = () => {
 
   const t = useTranslations("InsufficientCreditsModal");
   const locale = useLocale();
+
+  // Redirection for the case when the user presses the "escape" key
+  const handleKeyDown = (event: KeyboardEvent) => {
+    // Check if the key pressed is "Escape"
+    if (event.key === "Escape") {
+      router.push("/profile");
+    }
+  };
+
+  useEffect(() => {
+    // Add the event listener when the component is mounted
+    window.addEventListener("keydown", handleKeyDown);
+    // Remove event listener when component is unmounted
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []); // The empty array as the second argument ensures that this effect is only executed once, when mounting the component.
 
   return (
     <NextIntlClientProvider locale={locale}>
