@@ -86,5 +86,27 @@
   },
   "Checkout": {
     "buy": "Comprar Créditos"
+  },
+  "DeleteConfirmation": {
+    "delete": "Eliminar Imagen",
+    "sure": "¿Está seguro/a de que desea eliminar esta imagen?",
+    "advice": "Esta acción borrará la imagen permanentemente",
+    "cancel": "Cancelar",
+    "deleting": "Eliminando...",
+    "delete-2": "Eliminar"
+  },
+  "ImageDetails": {
+    "transformation": "Transformación",
+    "color": "Color",
+    "ratio": "Relación de Aspecto",
+    "original": "Original",
+    "update": "Actualizar Imagen"
+  },
+  "InsufficientCreditsModal": {
+    "dialog-header": "Créditos Insuficientes",
+    "dialog-title": "Ups... ¡Parece que te has quedado sin créditos gratuitos!",
+    "dialog-description": "Pero no te preocupes: puedes seguir disfrutando de nuestros servicios obteniendo más créditos.",
+    "dialog-cancel": "No, Cancelar",
+    "dialog-action": "Sí, Proceder"
   }
 }

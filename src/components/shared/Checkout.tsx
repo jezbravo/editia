@@ -4,11 +4,12 @@ import { MercadoPagoConfig, Preference } from "mercadopago";
 
 import { getTranslations } from "next-intl/server";
 
-// Agrega credenciales
+// Add credentials
 const client = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN!,
 });
 
+// Create the purchasing interface
 interface CheckoutProps {
   planName: string;
   planPrice: number;
@@ -59,7 +60,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
       },
     });
 
-    // Redirige al usuario a la URL proporcionada por Mercado Pago
+    // Redirects the user to the URL provided by Mercado Pago
     redirect(preference.init_point!);
   };
 

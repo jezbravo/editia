@@ -8,11 +8,14 @@ import { Button } from "@/src/components/ui/button";
 import { getImageById } from "@/src/lib/actions/image.actions";
 import { getImageSize } from "@/src/lib/utils";
 import { DeleteConfirmation } from "@/src/components/shared/DeleteConfirmation";
+import { getTranslations } from "next-intl/server";
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
 
   const image = await getImageById(id);
+
+  const t = await getTranslations("ImageDetails");
 
   return (
     <>
@@ -20,7 +23,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
 
       <section className="mt-5 flex flex-wrap gap-4">
         <div className="p-14-medium md:p-16-medium flex gap-2">
-          <p className="text-dark-600">Transformation:</p>
+          <p className="text-dark-600">{t("transformation")}:</p>
           <p className=" capitalize text-purple-400">
             {image.transformationType}
           </p>
@@ -40,7 +43,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
           <>
             <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
             <div className="p-14-medium md:p-16-medium flex gap-2">
-              <p className="text-dark-600">Color:</p>
+              <p className="text-dark-600">{t("color")}:</p>
               <p className=" capitalize text-purple-400">{image.color}</p>
             </div>
           </>
@@ -50,7 +53,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
           <>
             <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
             <div className="p-14-medium md:p-16-medium flex gap-2">
-              <p className="text-dark-600">Aspect Ratio:</p>
+              <p className="text-dark-600">{t("ratio")}:</p>
               <p className=" capitalize text-purple-400">{image.aspectRatio}</p>
             </div>
           </>
@@ -61,7 +64,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
         <div className="transformation-grid">
           {/* MEDIA UPLOADER */}
           <div className="flex flex-col gap-4">
-            <h3 className="h3-bold text-dark-600">Original</h3>
+            <h3 className="h3-bold text-dark-600">{t("original")}</h3>
 
             <Image
               width={getImageSize(image.transformationType, image, "width")}
@@ -87,7 +90,7 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
           <div className="mt-4 space-y-4">
             <Button asChild type="button" className="submit-button capitalize">
               <Link href={`/transformations/${image._id}/update`}>
-                Update Image
+                {t("update")}
               </Link>
             </Button>
 

@@ -1,4 +1,5 @@
 "use client";
+import { NextIntlClientProvider, useLocale, useTranslations } from "next-intl";
 
 import { useTransition } from "react";
 
@@ -20,42 +21,45 @@ import { Button } from "../ui/button";
 export const DeleteConfirmation = ({ imageId }: { imageId: string }) => {
   const [isPending, startTransition] = useTransition();
 
+  const t = useTranslations("DeleteConfirmation");
+  const locale = useLocale();
+
   return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild className="w-full rounded-full">
-        <Button
-          type="button"
-          className="button h-[44px] w-full md:h-[54px]"
-          variant="destructive"
-        >
-          Delete Image
-        </Button>
-      </AlertDialogTrigger>
-
-      <AlertDialogContent className="flex flex-col gap-10">
-        <AlertDialogHeader>
-          <AlertDialogTitle>
-            Are you sure you want to delete this image?
-          </AlertDialogTitle>
-          <AlertDialogDescription className="p-16-regular">
-            This will permanently delete this image
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction
-            className="border bg-red-500 text-white hover:bg-red-600"
-            onClick={() =>
-              startTransition(async () => {
-                await deleteImage(imageId);
-              })
-            }
+    <NextIntlClientProvider locale={locale}>
+      <AlertDialog>
+        <AlertDialogTrigger asChild className="w-full rounded-full">
+          <Button
+            type="button"
+            className="button h-[44px] w-full md:h-[54px]"
+            variant="destructive"
           >
-            {isPending ? "Deleting..." : "Delete"}
-          </AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+            {t("delete")}
+          </Button>
+        </AlertDialogTrigger>
+
+        <AlertDialogContent className="flex flex-col gap-10">
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t("sure")}</AlertDialogTitle>
+            <AlertDialogDescription className="p-16-regular">
+              {t("advice")}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+
+          <AlertDialogFooter>
+            <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
+            <AlertDialogAction
+              className="border bg-red-500 text-white hover:bg-red-600"
+              onClick={() =>
+                startTransition(async () => {
+                  await deleteImage(imageId);
+                })
+              }
+            >
+              {isPending ? t("deleting") : t("delete-2")}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </NextIntlClientProvider>
   );
 };
