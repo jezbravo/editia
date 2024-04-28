@@ -26,7 +26,7 @@ const Sidebar = () => {
   useEffect(() => {
     async function fetchNavLinks() {
       const navLinks = await NavLinks();
-      // Actualizar el estado con los enlaces obtenidos
+      // Update the status with the links obtained
       setNavLinks(navLinks.slice(0, 6));
     }
     fetchNavLinks();
@@ -35,7 +35,7 @@ const Sidebar = () => {
   useEffect(() => {
     async function fetchNavLinks() {
       const otherLinks = await NavLinks();
-      // Actualizar el estado con los enlaces obtenidos
+      // Update the status with the links obtained
       setOtherLinks(otherLinks.slice(6));
     }
     fetchNavLinks();

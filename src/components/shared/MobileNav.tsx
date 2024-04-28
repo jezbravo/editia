@@ -19,7 +19,7 @@ const MobileNav = () => {
   useEffect(() => {
     async function fetchNavLinks() {
       const navLinks = await NavLinks();
-      // Actualizar el estado con los enlaces obtenidos
+      // Update the status with the links obtained
       setLinks(navLinks);
     }
     fetchNavLinks();
