@@ -50,7 +50,7 @@ export default function LanguageSwitcher() {
                 width={5}
                 height={5}
               />
-              <span>en-US</span>
+              <span>en</span>
             </div>
           </SelectItem>
           <SelectItem value="es">
@@ -62,7 +62,7 @@ export default function LanguageSwitcher() {
                 width={5}
                 height={5}
               />
-              <span>ES</span>
+              <span>es</span>
             </div>
           </SelectItem>
           <SelectItem value="br">
@@ -74,7 +74,7 @@ export default function LanguageSwitcher() {
                 width={5}
                 height={5}
               />
-              <span>BR</span>
+              <span>pt-BR</span>
             </div>
           </SelectItem>
         </SelectContent>

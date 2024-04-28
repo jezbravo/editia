@@ -1,3 +1,4 @@
+import Footer from "@/src/components/shared/Footer";
 import LanguageSwitcher from "@/src/components/shared/LanguageSwitcher";
 import MobileNav from "@/src/components/shared/MobileNav";
 import Sidebar from "@/src/components/shared/Sidebar";
@@ -12,6 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <LanguageSwitcher />
         <div className="wrapper">{children}</div>
       </div>
+      <Footer />
       <Toaster />
     </main>
   );

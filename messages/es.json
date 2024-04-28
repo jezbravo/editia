@@ -109,5 +109,8 @@
     "dialog-description": "Pero no te preocupes: puedes seguir disfrutando de nuestros servicios obteniendo más créditos.",
     "dialog-cancel": "No, cancelar",
     "dialog-action": "Sí, proceder"
+  },
+  "Footer": {
+    "contact": "Contacto"
   }
 }
