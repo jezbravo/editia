@@ -48,6 +48,7 @@
     "description": "1 credit was deducted from your account",
     "title-2": "Something went wrong while uploading",
     "description-2": "Please try again",
+    "original": "Original",
     "upload": "Click here to upload image"
   },
   "ProfilePage": {
