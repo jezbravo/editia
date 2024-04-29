@@ -1,48 +1,12 @@
-"use client";
-
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { NavLinks } from "@/src/constants-2";
 import { Button } from "../ui/button";
-import { useEffect, useState } from "react";
+import RouteChecker from "@/src/components/shared/RouteChecker";
 
-const Sidebar = () => {
-  const pathname = usePathname();
-  const cleanPathname =
-    pathname.startsWith("/en") ||
-    pathname.startsWith("/es") ||
-    pathname.startsWith("/br")
-      ? pathname.slice(3)
-      : pathname;
-
-  const [navLinks, setNavLinks] = useState<
-    { label: string; route: string; icon: string }[]
-  >([]);
-
-  const [otherLinks, setOtherLinks] = useState<
-    { label: string; route: string; icon: string }[]
-  >([]);
-
-  useEffect(() => {
-    async function fetchNavLinks() {
-      const navLinks = await NavLinks();
-      // Update the status with the links obtained
-      setNavLinks(navLinks.slice(0, 6));
-    }
-    fetchNavLinks();
-  }, []);
-
-  useEffect(() => {
-    async function fetchNavLinks() {
-      const otherLinks = await NavLinks();
-      // Update the status with the links obtained
-      setOtherLinks(otherLinks.slice(6));
-    }
-    fetchNavLinks();
-  }, []);
-
+const Sidebar = async () => {
+  const cleanPathname = String(RouteChecker);
   return (
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
@@ -57,7 +21,7 @@ const Sidebar = () => {
         <nav className="sidebar-nav">
           <SignedIn>
             <ul className="sidebar-nav_elements">
-              {navLinks.map((link) => {
+              {(await NavLinks()).slice(0, 6).map((link) => {
                 const isActive = link.route === cleanPathname;
                 return (
                   <li
@@ -84,7 +48,7 @@ const Sidebar = () => {
             </ul>
 
             <ul className="sidebar-nav_elements">
-              {otherLinks.map((link) => {
+              {(await NavLinks()).slice(6, 8).map((link) => {
                 const isActive = link.route === cleanPathname;
                 return (
                   <li
@@ -109,7 +73,10 @@ const Sidebar = () => {
                 );
               })}
               <li className="flex-center cursor-pointer gap-2 p-4">
-                <UserButton afterSignOutUrl="/" showName />
+                <UserButton
+                  afterSignOutUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
+                  showName
+                />
               </li>
             </ul>
           </SignedIn>
