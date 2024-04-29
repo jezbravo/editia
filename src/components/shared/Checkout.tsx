@@ -29,6 +29,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
 }) => {
   const handlePurchase = async () => {
     "use server";
+
     const preference = await new Preference(client).create({
       body: {
         items: [
