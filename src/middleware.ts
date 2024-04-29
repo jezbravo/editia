@@ -20,6 +20,11 @@ export default authMiddleware({
     "/sign-in",
     "/api/webhooks/clerk",
     "/api/webhooks/mp_validation",
+    "/en/api/webhooks/mp_validation",
+    "/es/api/webhooks/mp_validation",
+    "/br/api/webhooks/mp_validation",
+    "/[locale]/api/webhooks/mp_validation",
+    "/:locale/api/webhooks/mp_validation",
   ],
 });
 
