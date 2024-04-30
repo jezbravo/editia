@@ -27,6 +27,7 @@ export default function LanguageSwitcher() {
   const onSelectChange = (nextLocale: string) => {
     startTransition(() => {
       router.replace(`/${nextLocale}/${cleanPathname}`);
+      router.refresh(); // Do not remove this
     });
   };
 
