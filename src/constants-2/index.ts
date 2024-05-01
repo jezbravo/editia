@@ -6,7 +6,7 @@ export async function NavLinks() {
   return [
     {
       label: t("Home"),
-      route: "/",
+      route: "/home",
       icon: "/assets/icons/home.svg",
     },
     {
