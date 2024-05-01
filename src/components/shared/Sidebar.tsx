@@ -25,6 +25,7 @@ const Sidebar = () => {
     { label: string; route: string; icon: string }[]
   >([]);
 
+  // Superior part of the navbar
   useEffect(() => {
     async function fetchNavLinks() {
       const navLinks = await NavLinks();
@@ -34,6 +35,7 @@ const Sidebar = () => {
     fetchNavLinks();
   }, []);
 
+  // Inferior part of the navbar
   useEffect(() => {
     async function fetchOtherLinks() {
       const otherLinks = await NavLinks();
