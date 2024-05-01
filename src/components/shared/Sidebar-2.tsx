@@ -1,16 +1,52 @@
-import { RouteChecker } from "./RouteChecker";
+"use client";
+
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NavLinks } from "@/src/constants-2";
 import { Button } from "../ui/button";
+import { useEffect, useState } from "react";
 
-const Sidebar = async () => {
-  const clean = RouteChecker();
-  // console.log(clean);
+const Sidebar2 = () => {
+  const pathname = usePathname();
+  const cleanPathname =
+    pathname.startsWith("/en") ||
+    pathname.startsWith("/es") ||
+    pathname.startsWith("/br")
+      ? pathname.slice(3)
+      : pathname;
+
+  const [navLinks, setNavLinks] = useState<
+    { label: string; route: string; icon: string }[]
+  >([]);
+
+  const [otherLinks, setOtherLinks] = useState<
+    { label: string; route: string; icon: string }[]
+  >([]);
+
+  // Superior part of the navbar
+  useEffect(() => {
+    async function fetchNavLinks() {
+      const navLinks = await NavLinks();
+      // Update the status with the links obtained
+      setNavLinks(navLinks.slice(0, 6));
+    }
+    fetchNavLinks();
+  }, []);
+
+  // Inferior part of the navbar
+  useEffect(() => {
+    async function fetchOtherLinks() {
+      const otherLinks = await NavLinks();
+      // Update the status with the links obtained
+      setOtherLinks(otherLinks.slice(6));
+    }
+    fetchOtherLinks();
+  }, []);
+
   return (
     <aside className="sidebar">
-      {/* <RouteChecker /> */}
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="sidebar-logo">
           <Image
@@ -23,8 +59,8 @@ const Sidebar = async () => {
         <nav className="sidebar-nav">
           <SignedIn>
             <ul className="sidebar-nav_elements">
-              {(await NavLinks()).slice(0, 6).map((link) => {
-                const isActive = clean === link.route;
+              {navLinks.map((link) => {
+                const isActive = link.route === cleanPathname;
                 return (
                   <li
                     key={link.route}
@@ -50,16 +86,16 @@ const Sidebar = async () => {
             </ul>
 
             <ul className="sidebar-nav_elements">
-              {(await NavLinks()).slice(6, 8).map((link) => {
-                // const isActive = link.route === path;
+              {otherLinks.map((link) => {
+                const isActive = link.route === cleanPathname;
                 return (
                   <li
                     key={link.route}
-                    // className={`sidebar-nav_element group ${
-                    //   isActive
-                    //     ? "bg-green-gradient text-white"
-                    //     : "text-gray-700"
-                    // }`}
+                    className={`sidebar-nav_element group ${
+                      isActive
+                        ? "bg-green-gradient text-white"
+                        : "text-gray-700"
+                    }`}
                   >
                     <Link className="sidebar-link" href={link.route}>
                       <Image
@@ -67,7 +103,7 @@ const Sidebar = async () => {
                         alt="logo"
                         width={24}
                         height={24}
-                        // className={`${isActive && "brightness-200"}`}
+                        className={`${isActive && "brightness-200"}`}
                       />
                       {link.label}
                     </Link>
@@ -91,4 +127,4 @@ const Sidebar = async () => {
   );
 };
 
-export default Sidebar;
+export default Sidebar2;

@@ -1,6 +1,7 @@
 import Footer from "@/src/components/shared/Footer";
 import LanguageSwitcher from "@/src/components/shared/LanguageSwitcher";
 import MobileNav from "@/src/components/shared/MobileNav";
+import { RouteChecker } from "@/src/components/shared/RouteChecker";
 import Sidebar from "@/src/components/shared/Sidebar";
 import { Toaster } from "@/src/components/ui/toaster";
 
