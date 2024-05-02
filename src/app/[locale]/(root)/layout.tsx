@@ -7,7 +7,6 @@ import { Toaster } from "@/src/components/ui/toaster";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="root">
-      {/* <ClientSidebar /> */}
       <Sidebar />
       <MobileNav />
       <div className="root-container">

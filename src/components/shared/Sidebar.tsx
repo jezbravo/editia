@@ -6,10 +6,6 @@ import Link from "next/link";
 import { NavLinks } from "@/src/constants-2";
 import { Button } from "../ui/button";
 
-// interface SidebarProps {
-//   cleanPathname: string;
-// }
-
 const Sidebar = async () => {
   return (
     <aside className="sidebar">
@@ -37,7 +33,10 @@ const Sidebar = async () => {
                     //     : "text-gray-700"
                     // }`}
                   >
-                    <Link className="sidebar-link" href={link.route}>
+                    <Link
+                      className="sidebar-link transition-transform duration-150 ease-in-out hover:scale-105"
+                      href={link.route}
+                    >
                       <Image
                         src={link.icon}
                         alt="logo"
@@ -52,20 +51,24 @@ const Sidebar = async () => {
               })}
             </ul>
 
-            <ul className="sidebar-nav_elements">
+            <ul className="sidebar-nav_elements pb-4">
               {(await NavLinks()).slice(6, 8).map((link) => {
                 // const isActive = cleanPathname === link.route;
                 return (
                   <li
                     key={link.route}
-                    // className={`sidebar-nav_element group`{
+                    className={`sidebar-nav_element group`}
+                    // {
                     // ${
                     //   isActive
                     //     ? "bg-green-gradient text-white"
                     //     : "text-gray-700"
                     // }`}
                   >
-                    <Link className="sidebar-link" href={link.route}>
+                    <Link
+                      className="sidebar-link transition-transform duration-150 ease-in-out hover:scale-105"
+                      href={link.route}
+                    >
                       <Image
                         src={link.icon}
                         alt="logo"
@@ -78,8 +81,8 @@ const Sidebar = async () => {
                   </li>
                 );
               })}
-              <li className="flex-center cursor-pointer gap-2 p-4">
-                <UserButton afterSignOutUrl="/en/sign-in" showName />
+              <li className="flex-center cursor-pointer gap-2 p-4 pb-4">
+                <UserButton afterSignOutUrl="/" showName />
               </li>
             </ul>
           </SignedIn>

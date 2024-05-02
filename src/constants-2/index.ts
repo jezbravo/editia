@@ -1,6 +1,12 @@
 "use server";
 import { getTranslations } from "next-intl/server";
 
+export type NavLinkType = {
+  label: string;
+  route: string;
+  icon: string;
+};
+
 export async function NavLinks() {
   const t = await getTranslations("navLinks");
   return [
