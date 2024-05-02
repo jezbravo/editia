@@ -6,7 +6,7 @@ import Link from "next/link";
 import { NavLinks } from "@/src/constants-2";
 import { Button } from "../ui/button";
 
-const Sidebar = async () => {
+export default async function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
@@ -86,7 +86,6 @@ const Sidebar = async () => {
               </li>
             </ul>
           </SignedIn>
-
           <SignedOut>
             <Button asChild className="button bg-green-gradient bg-cover">
               <Link href="/sign-in">Login</Link>
@@ -96,6 +95,6 @@ const Sidebar = async () => {
       </div>
     </aside>
   );
-};
+}
 
-export default Sidebar;
+// export default Sidebar;
