@@ -6,7 +6,7 @@ import Link from "next/link";
 import { NavLinks } from "@/src/constants-2";
 import { Button } from "../ui/button";
 
-export default async function Sidebar() {
+async function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
@@ -81,7 +81,7 @@ export default async function Sidebar() {
                   </li>
                 );
               })}
-              <li className="flex-center cursor-pointer gap-2 pb-4">
+              <li className="flex-center cursor-pointer gap-2 p-4">
                 <UserButton afterSignOutUrl="/" showName />
               </li>
             </ul>
@@ -97,4 +97,4 @@ export default async function Sidebar() {
   );
 }
 
-// export default Sidebar;
+export default Sidebar;
