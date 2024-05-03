@@ -53,8 +53,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
           pending: process.env.BACK_URL_PENDING!,
         },
 
-        notification_url:
-          "https://editia.vercel.app/en/api/webhooks/mp_validation",
+        notification_url: process.env.NOTIFICATION_URL,
 
         statement_descriptor: "Editia",
 

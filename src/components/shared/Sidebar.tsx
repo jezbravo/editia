@@ -26,7 +26,7 @@ export default async function Sidebar() {
                 return (
                   <li
                     key={link.route}
-                    className={`sidebar-nav_element group`}
+                    className="sidebar-nav_element group"
                     // ${
                     //   isActive
                     //     ? "bg-green-gradient text-white"
@@ -57,7 +57,7 @@ export default async function Sidebar() {
                 return (
                   <li
                     key={link.route}
-                    className={`sidebar-nav_element group`}
+                    className="sidebar-nav_element group"
                     // {
                     // ${
                     //   isActive
@@ -81,7 +81,7 @@ export default async function Sidebar() {
                   </li>
                 );
               })}
-              <li className="flex-center cursor-pointer gap-2 p-4 pb-4">
+              <li className="flex-center cursor-pointer gap-2 pb-4">
                 <UserButton afterSignOutUrl="/" showName />
               </li>
             </ul>
