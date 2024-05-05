@@ -16,20 +16,18 @@ export default authMiddleware({
 
   // Ensure that locale specific sign-in pages are public
   publicRoutes: [
-    "/:locale(sign-in)?",
-    "/en(sign-in)?",
-    "/es(sign-in)?",
-    "/br(sign-in)?",
     "/en/sign-in",
     "/es/sign-in",
     "/br/sign-in",
+    "/en/sign-up",
+    "/es/sign-up",
+    "/br/sign-up",
     "/en/api/webhooks/clerk",
     "/es/api/webhooks/clerk",
     "/br/api/webhooks/clerk",
     "/en/api/webhooks/mp_validation",
     "/es/api/webhooks/mp_validation",
     "/br/api/webhooks/mp_validation",
-    "/:locale(api/webhooks/mp_validation)?",
   ],
 });
 
