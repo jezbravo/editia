@@ -53,7 +53,7 @@ const Checkout: React.FC<CheckoutProps> = async ({
           pending: process.env.BACK_URL_PENDING!,
         },
 
-        notification_url: process.env.NOTIFICATION_URL,
+        notification_url: process.env.NOTIFICATION_URL!,
 
         statement_descriptor: "Editia",
 
