@@ -9,8 +9,9 @@ const mercadopago = new MercadoPagoConfig({
 
 export async function handlePayment(body: any) {
   //   Datos de la compra
+  console.log("Inicio payment: ");
   const payment = await new Payment(mercadopago).get({ id: body.data.id });
-  // console.log("payment:", payment);
+  console.log("payment:", payment);
 
   //   Objeto con info de la compra, para integrar a la DB
   const transaction = {
