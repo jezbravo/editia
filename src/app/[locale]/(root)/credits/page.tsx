@@ -4,7 +4,7 @@ import Image from "next/image";
 import Header from "@/src/components/shared/Header";
 import { Button } from "@/src/components/ui/button";
 import { Plans } from "@/src/constants-2";
-import Checkout from "@/src/components/shared/Checkout";
+import Checkout from "@/src/components/shared/Checkout-2";
 
 import { getTranslations } from "next-intl/server";
 
