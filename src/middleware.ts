@@ -31,18 +31,6 @@ export default authMiddleware({
     "/en/profile",
     "/es/profile",
     "/br/profile",
-    "https://editia.vercel.app/en/api/webhooks/clerk",
-    "https://editia.vercel.app/es/api/webhooks/clerk",
-    "https://editia.vercel.app/br/api/webhooks/clerk",
-    "https://editia.vercel.app/en/api/webhooks/mp_validation",
-    "https://editia.vercel.app/es/api/webhooks/mp_validation",
-    "https://editia.vercel.app/br/api/webhooks/mp_validation",
-    "https://editia.vercel.app/en/profile",
-    "https://editia.vercel.app/es/profile",
-    "https://editia.vercel.app/br/profile",
-    "https://editia.vercel.app/en/credits",
-    "https://editia.vercel.app/es/credits",
-    "https://editia.vercel.app/br/credits",
   ],
 });
 
