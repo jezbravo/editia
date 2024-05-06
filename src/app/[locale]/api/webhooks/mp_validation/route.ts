@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import crypto from "crypto";
-import { handlePayment } from "@/src/lib/actions/transaction.actions";
+import { handlePayment } from "@/src/lib/actions/transaction.actions-2";
 
 // Function to extract query parameters from URL
 function extractQueryParams(url: string): Record<string, string> {
