@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import crypto from "crypto";
-import { handlePayment } from "@/src/lib/actions/transaction.actions-2";
+import { handlePayment } from "@/src/lib/actions/transaction.actions";
 
 // Function to extract query parameters from URL
 function extractQueryParams(url: string): Record<string, string> {
@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
 
   // Verify HMAC Signature
   if (verifyHmac(signature, secret, manifest)) {
-    handlePayment(body); //Redirect to payment controller
+    await handlePayment(body); //Redirect to payment controller
     return Response.json({ success: true }); // End the response with a success message
   } else {
     return Response.json({ success: false }); // End the response with an error message
