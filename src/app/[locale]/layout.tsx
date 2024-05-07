@@ -13,7 +13,24 @@ const RobotoFont = Roboto({
 
 export const metadata: Metadata = {
   title: "Editia",
-  description: "AI-powered image generator and editor",
+  description: "Powerful AI image editor",
+  keywords: "ia, image, photo, picture, edition",
+  creator: "JEB",
+
+  openGraph: {
+    title: "Editia",
+    description: "Powerful AI image editor",
+    url: "https://editia.vercel.app/",
+    siteName: "Editia",
+    images: [
+      {
+        url: "https://bit.ly/editia",
+        width: 800,
+        height: 600,
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
