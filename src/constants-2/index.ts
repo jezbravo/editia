@@ -110,8 +110,8 @@ export async function Plans() {
       _id: 3,
       name: t("name-3"),
       icon: "/assets/icons/free-plan.svg",
-      price: 199,
-      credits: 1000,
+      price: 500,
+      credits: 700,
       inclusions: [
         {
           label: t("inclusions-3.label-1"),
